@@ -1,0 +1,80 @@
+* Title: Lab 1 Circuit
+
+*saving the currents
+.options savecurrents
+
+*Netlist
+Va 1 0 5.14793149166V 
+Id 6 4 1.04178245279m 
+
+R1 1 2 1.00482572563k 
+R2 3 2 2.03286190649k 
+R3 2 5 3.11785434967k 
+R4 0 5 4.11016834747k 
+R5 4 5 3.13628987141k 
+R6 8 7 2.09741692172k 
+R7 7 6 1.03142587047k 
+
+V_ic 0 8 0V
+
+
+Gib 4 3 (2,5) 7.1972032444m
+Hvc 5 6 V_ic 8.17807176177k 
+
+* Control commands
+.control
+
+op
+
+echo "********************************************"
+echo  Current Values
+echo "********************************************"
+print @R1[i]
+print @R2[i]
+print @R3[i]
+print @R4[i]
+print @R5[i]
+print @R6[i]
+print @R7[i]
+
+echo "********************************************"
+echo  Voltage Values
+echo "********************************************"
+print v(1)
+print v(2)
+print v(3)
+print v(4)
+print v(5)
+print v(6)
+print v(7)
+print v(8)
+
+echo  "op_TAB"
+print all
+echo Vb
+print v(2,5)
+echo Vc
+print v(5,6)
+echo  "op_END"
+
+echo "********************************************"
+echo  Vb
+print v(2,5)
+echo "********************************************"
+echo  Vc
+print v(5,6)
+echo "********************************************"
+echo  Ic
+print @R7[i]
+echo "********************************************"
+echo  Ib
+print @R2[i]
+echo "********************************************"
+
+
+
+quit
+
+.endc
+
+.end
